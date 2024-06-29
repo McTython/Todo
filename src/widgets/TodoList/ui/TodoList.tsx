@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Button, Dropdown, MenuProps } from "antd";
+import { DownOutlined } from "@ant-design/icons";
 import TodoCard from "@/entities/TodoCard/ui/TodoCard";
 import { ITodo } from "@/shared/config/interfaces/ITodo";
 import useGetTodos from "@/widgets/TodoList/module/useGetTodos";
-import { DownOutlined } from "@ant-design/icons";
 import AddTodoModal from "@/shared/ui/AddTodoModal/ui/AddTodoModal";
-
 import styles from "./TodoList.module.scss";
 
 const TodoList = (): React.ReactElement => {
@@ -43,17 +42,12 @@ const TodoList = (): React.ReactElement => {
   };
 
   return (
-    <div className={styles.root}>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
+    <div className={styles.todo}>
+      <div className={styles.todo__header}>
         <div>
           <Button type="primary" onClick={showModal}>
             Add Task
-          </Button>{" "}
+          </Button>
         </div>
         <Dropdown menu={menuProps}>
           <Button>
@@ -62,7 +56,7 @@ const TodoList = (): React.ReactElement => {
           </Button>
         </Dropdown>
       </div>
-      <div className={styles.todos__list}>
+      <div className={styles.todo__list}>
         {todos
           .filter((a) => {
             if (choosenMenu === "All") return a;

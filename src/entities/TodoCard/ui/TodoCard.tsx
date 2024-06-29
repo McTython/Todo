@@ -9,7 +9,7 @@ const TodoCard = ({ todo, setTodos }: ITodoCardProps) => {
   const [isCompleted, setIsCompleted] = useState<boolean>(todo.completed);
   const [open, setOpen] = useState(false);
 
-  const handleCheckbox = (e) => {
+  const handleCheckbox = () => {
     setIsCompleted((prev) => !prev);
     setTodos((prev) =>
       [
@@ -27,23 +27,25 @@ const TodoCard = ({ todo, setTodos }: ITodoCardProps) => {
   };
 
   return (
-    <div className={styles.root}>
-      <div className={styles.left__card}>
+    <div className={styles.todo__card}>
+      <div className={styles.todo__leftcard}>
         <input
           type="checkbox"
           checked={isCompleted}
           onChange={handleCheckbox}
           style={{ width: "20px" }}
         />
-        <div>
-          <p>{todo.title}</p>
+        <div className={`${styles["todo__leftcard-info"]}`}>
+          <p className={isCompleted ? styles.completed : undefined}>
+            {todo.title}
+          </p>
           <p>{todo.todo}</p>
         </div>
       </div>
-      <div className={styles.right__card}>
+      <div className={styles.todo__rightcard}>
         <button type="button" onClick={deleteTodo}>
           <DeleteFilled />
-        </button>{" "}
+        </button>
         <button type="button" onClick={() => setOpen(true)}>
           <EditFilled />
         </button>

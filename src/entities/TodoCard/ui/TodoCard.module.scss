@@ -1,44 +1,50 @@
-.root {
-  display: flex;
-  justify-content: space-between;
-  background-color: #fff;
-  padding: 5px 10px;
-  border-radius: 3px;
-  align-items: center;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-size: 12px;
-  &:hover {
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  }
-}
-
-.left__card {
-  display: flex;
-  gap: 10px;
-  > input {
+.todo {
+  &__card {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    align-items: center;
     cursor: pointer;
+    transition: all 0.3s;
+    font-size: 12px;
+    &:hover {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
   }
-}
-
-.right__card {
-  display: flex;
-  gap: 10px;
-}
-
-button {
-  outline: none;
-  border: none;
-  background: #f1f1f1;
-  cursor: pointer;
-  padding: 4px;
-  border-radius: 3px;
-  color: #646464;
-  transition: color 0.4s;
-  &:first-child:hover {
-    color: red;
+  &__leftcard {
+    display: flex;
+    gap: 10px;
+    > input {
+      cursor: pointer;
+    }
+    &-info {
+      > p {
+        &.completed {
+          text-decoration: line-through;
+        }
+      }
+    }
   }
-  &:nth-child(2):hover {
-    color: lightseagreen;
+  &__rightcard {
+    display: flex;
+    gap: 10px;
+    > button {
+      outline: none;
+      border: none;
+      background: #f1f1f1;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 3px;
+      color: #646464;
+      transition: color 0.3s;
+      &:first-child:hover {
+        color: red;
+      }
+      &:nth-child(2):hover {
+        color: green;
+      }
+    }
   }
 }
